@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-stick>a[title]:hover::after{
+    content: attr(title);
+    position: relative;
+    top: -29px;
+    left: 30px;
+    text-align: center;
+    color: #253536;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: 'Questrial', sans-serif;
+}
