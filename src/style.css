@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.menu-stick>a[title]:hover::after{
+.menu-stick > a[title]:hover::after {
     content: attr(title);
     position: relative;
     top: -29px;
@@ -12,4 +12,101 @@
     font-size: 15px;
     text-transform: uppercase;
     font-family: 'Questrial', sans-serif;
+}
+
+/*------------------------------- HAMBURGER MENU ---------------------------------*/
+
+.hamburger {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    transition: all 0.25s;
+}
+
+.hamburger__top-bun,
+.hamburger__bottom-bun {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger:hover [class*="-bun"] {
+    background: #333;
+}
+
+.hamburger__top-bun {
+    transform: translateY(-5px);
+}
+
+.hamburger__bottom-bun {
+    transform: translateY(3px);
+}
+
+.open {
+    transform: rotate(90deg);
+    transform: translateY(-1px);
+}
+
+.open .hamburger__top-bun {
+    transform: rotate(45deg) translateY(0px);
+}
+
+.open .hamburger__bottom-bun {
+    transform: rotate(-45deg) translateY(0px);
+}
+
+
+/*-----------------------------CSS ACORDION HOME ---------------------------------*/
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary {
+    background: transparent;
+    color: black
+}
+
+details[open] summary::after {
+    content: "-";
+}
+
+details[open] summary ~ * {
+    animation: slideDown 0.3s ease-in-out;
+}
+
+details[open] summary p {
+    opacity: 0;
+    animation-name: showContent;
+    animation-duration: 0.6s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+    margin: 0;
+}
+
+@keyframes showContent {
+    from {
+        opacity: 0;
+        height: 0;
+    }
+    to {
+        opacity: 1;
+        height: auto;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        height: 0;
+        padding: 0;
+    }
+
+    to {
+        opacity: 1;
+        height: auto;
+    }
 }
